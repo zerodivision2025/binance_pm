@@ -82,7 +82,7 @@ class BinanceAPI:
         self.session.headers.update(
             {
                 "Content-Type": "application/json;charset=utf-8",
-                "User-Agent": "binance_pm/",
+                "User-Agent": "binance_pm",
                 "X-MBX-APIKEY": api_key,
             }
         )
