@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     name='binance_pm_1.5',
     version='0.0.1',
-    packages=['binance_pm_1.5'],
+    packages=['binance_pm'],
     install_requires=['requests', 'pycryptodome'],
     author='zerodivision',
     author_email='zerodivision@zerodivision.tech',
