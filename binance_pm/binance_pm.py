@@ -50,6 +50,10 @@ class BinancePm(BinanceAPI):
         url_path = '/papi/v1/um/positionSide/dual'
         return self.sign_request('POST', url_path, {'dualSidePosition': dual_side_position})
 
+    def post_cm_position_mode(self, dual_side_position):
+        url_path = '/papi/v1/cm/positionSide/dual'
+        return self.sign_request('POST', url_path, {'dualSidePosition': dual_side_position})
+
     def request_um_user_trades(self, symbol, start_time=None, end_time=None, from_id=None, limit=None):
         url_path = '/papi/v1/um/userTrades'
         return self.sign_request('GET', url_path, {'symbol': symbol, 'startTime': start_time, 'endTime': end_time, 'fromId': from_id, 'limit': limit})
@@ -150,11 +154,11 @@ class BinancePm(BinanceAPI):
 
     def post_margin_loan(self, asset, amount):
         url_path = '/papi/v1/marginLoan'
-        return self.sign_request('POST', url_path, {'symbol': asset, 'side': amount})
+        return self.sign_request('POST', url_path, {'asset': asset, 'amount': amount})
 
     def post_margin_repay(self, asset, amount):
         url_path = '/papi/v1/repayLoan'
-        return self.sign_request('POST', url_path, {'symbol': asset, 'side': amount})
+        return self.sign_request('POST', url_path, {'asset': asset, 'amount': amount})
 
     def cancel_um_order(self, symbol, order_id=None, orig_client_order_id=None):
         url_path = '/papi/v1/um/order'
