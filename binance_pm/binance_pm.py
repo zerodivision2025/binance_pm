@@ -121,6 +121,18 @@ class BinancePm(BinanceAPI):
         url_path = '/papi/v1/bnb-transfer'
         return self.sign_request('POST', url_path, {'amount': amount, 'transferSide': transfer_side})
 
+    def request_um_income_hist(self, symbol=None, income_type=None, start_time=None, end_time=None, limit=None):
+        """TRANSFER, WELCOME_BONUS, REALIZED_PNL, FUNDING_FEE, COMMISSION, INSURANCE_CLEAR, REFERRAL_KICKBACK, COMMISSION_REBATE, API_REBATE,
+        CONTEST_REWARD, CROSS_COLLATERAL_TRANSFER, OPTIONS_PREMIUM_FEE, OPTIONS_SETTLE_PROFIT, INTERNAL_TRANSFER, AUTO_EXCHANGE, DELIVERED_SETTELMENT,
+        COIN_SWAP_DEPOSIT, COIN_SWAP_WITHDRAW, POSITION_LIMIT_INCREASE_FEE"""
+        url_path = '/papi/v1/um/income'
+        return self.sign_request('GET', url_path, {'symbol': symbol, 'incomeType': income_type, 'startTime': start_time, 'endTime': end_time, 'limit': limit})
+
+    def request_cm_income_hist(self, symbol=None, income_type=None, start_time=None, end_time=None, limit=None):
+        """TRANSFER","WELCOME_BONUS", "FUNDING_FEE", "REALIZED_PNL", "COMMISSION", "INSURANCE_CLEAR", and "DELIVERED_SETTELMENT"""
+        url_path = '/papi/v1/cm/income'
+        return self.sign_request('GET', url_path, {'symbol': symbol, 'incomeType': income_type, 'startTime': start_time, 'endTime': end_time, 'limit': limit})
+
     def place_um_order(self, symbol, side, type, position_side=None, time_in_force=None, quantity=None, reduce_only=None, price=None,
                        new_client_order_id=None, new_order_resp_type=None):
         url_path = '/papi/v1/um/order'
