@@ -104,12 +104,12 @@ class BinancePm(BinanceAPI):
         return self.sign_request('GET', url_path, {'asset': asset, 'txId': tx_id, 'startTime': start_time, 'endTime': end_time,
                                                    'current': current, 'size': size, 'archived': archived})
 
-    def request_margin_interest_hist(self, asset, start_time=None, end_time=None, current=None, size=None, archived=None):
+    def request_margin_interest_hist(self, asset=None, start_time=None, end_time=None, current=None, size=None, archived=None):
         url_path = '/papi/v1/margin/marginInterestHistory'
         return self.sign_request('GET', url_path, {'asset': asset, 'startTime': start_time, 'endTime': end_time,
                                                    'current': current, 'size': size, 'archived': archived})
 
-    def request_portfolio_interest_hist(self, asset, start_time=None, end_time=None, size=None):
+    def request_portfolio_interest_hist(self, asset=None, start_time=None, end_time=None, size=None):
         url_path = '/papi/v1/portfolio/interest-history'
         return self.sign_request('GET', url_path, {'asset': asset, 'startTime': start_time, 'endTime': end_time, 'size': size})
 
