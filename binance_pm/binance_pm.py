@@ -130,7 +130,7 @@ class BinancePm(BinanceAPI):
         return self.sign_request('POST', url_path, {'autoRepay': auto_repay})
 
     def post_repay_futures_negative_balance(self, ):
-        url_path = 'repay-futures-negative-balance'
+        url_path = '/papi/v1/repay-futures-negative-balance'
         return self.sign_request('POST', url_path, )
 
     def request_um_income_hist(self, symbol=None, income_type=None, start_time=None, end_time=None, limit=None):
