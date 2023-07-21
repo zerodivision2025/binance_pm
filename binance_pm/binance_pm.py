@@ -121,6 +121,18 @@ class BinancePm(BinanceAPI):
         url_path = '/papi/v1/bnb-transfer'
         return self.sign_request('POST', url_path, {'amount': amount, 'transferSide': transfer_side})
 
+    def request_repay_futures_switch(self):
+        url_path = '/papi/v1/repay-futures-switch'
+        return self.sign_request('GET', url_path, )
+
+    def post_repay_futures_switch(self, auto_repay):
+        url_path = '/papi/v1/repay-futures-switch'
+        return self.sign_request('POST', url_path, {'autoRepay': auto_repay})
+
+    def post_repay_futures_negative_balance(self, ):
+        url_path = 'repay-futures-negative-balance'
+        return self.sign_request('POST', url_path, )
+
     def request_um_income_hist(self, symbol=None, income_type=None, start_time=None, end_time=None, limit=None):
         """TRANSFER, WELCOME_BONUS, REALIZED_PNL, FUNDING_FEE, COMMISSION, INSURANCE_CLEAR, REFERRAL_KICKBACK, COMMISSION_REBATE, API_REBATE,
         CONTEST_REWARD, CROSS_COLLATERAL_TRANSFER, OPTIONS_PREMIUM_FEE, OPTIONS_SETTLE_PROFIT, INTERNAL_TRANSFER, AUTO_EXCHANGE, DELIVERED_SETTELMENT,
