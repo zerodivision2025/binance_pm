@@ -247,3 +247,15 @@ class BinancePm(BinanceAPI):
     def request_cm_all_orders(self, symbol, pair=None, order_id=None, start_time=None, end_time=None, limit=None):
         url_path = '/papi/v1/cm/allOrders'
         return self.sign_request('GET', url_path, {'symbol': symbol, 'pair': pair, 'orderId': order_id, 'startTime': start_time, 'endTime': end_time, 'limit': limit})
+
+    def request_listen_key(self):
+        url_path = '/papi/v1/listenKey'
+        return self.sign_request('POST', url_path)
+
+    def keepalive_listen_key(self):
+        url_path = '/papi/v1/listenKey'
+        return self.sign_request('PUT', url_path)
+
+    def close_listen_key(self):
+        url_path = '/papi/v1/listenKey'
+        return self.sign_request('DELETE', url_path)
