@@ -62,6 +62,10 @@ class BinancePm(BinanceAPI):
         url_path = '/papi/v1/cm/userTrades'
         return self.sign_request('GET', url_path, {'symbol': symbol, 'pair': pair, 'startTime': start_time, 'endTime': end_time, 'fromId': from_id, 'limit': limit})
 
+    def request_margin_user_trades(self, symbol=None, order_id=None, start_time=None, end_time=None, from_id=None, limit=None):
+        url_path = '/papi/v1/margin/myTrades'
+        return self.sign_request('GET', url_path, {'symbol': symbol, 'orderId': order_id, 'startTime': start_time, 'endTime': end_time, 'fromId': from_id, 'limit': limit})
+
     def request_um_leverage_bracket(self, symbol=None):
         url_path = '/papi/v1/um/leverageBracket'
         return self.sign_request('GET', url_path, {'symbol': symbol})
