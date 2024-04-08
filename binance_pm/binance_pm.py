@@ -216,6 +216,10 @@ class BinancePm(BinanceAPI):
         url_path = '/papi/v1/margin/orderList'
         return self.sign_request('DELETE', url_path, {'symbol': symbol, 'orderListId': order_list_id, 'listClientOrderId': list_client_order_id, 'newClientOrderId': new_client_order_id})
 
+    def request_margin_open_orders(self, symbol=None):
+        url_path = '/papi/v1/margin/openOrders'
+        return self.sign_request('GET', url_path, {'symbol': symbol})
+
     def request_margin_all_orders(self, symbol, order_id=None, start_time=None, end_time=None, limit=None):
         url_path = '/papi/v1/margin/allOrders'
         return self.sign_request('GET', url_path, {'symbol': symbol, 'orderId': order_id, 'startTime': start_time, 'endTime': end_time, 'limit': limit})
