@@ -86,6 +86,7 @@ class BinanceAPI:
                 "X-MBX-APIKEY": api_key,
             }
         )
+        self.logger = logging.getLogger("binance_pm")
 
     def sign_request(self, http_method, url_path, payload=None, special=False):
         if payload is None:
@@ -136,10 +137,12 @@ class BinanceAPI:
                         or key.startswith("x-sapi-used")
                 ):
                     limit_usage[key] = response.headers[key]
-            result["limit_usage"] = limit_usage
+            # result["limit_usage"] = limit_usage
+            self.logger.debug(limit_usage)
 
         if self.show_header:
-            result["header"] = response.headers
+            # result["header"] = response.headers
+            self.logger.debug(response.headers)
 
         if len(result) != 0:
             result["data"] = data
