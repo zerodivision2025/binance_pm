@@ -108,7 +108,8 @@ class BinanceAPI:
         if payload is None:
             payload = {}
         url = self.base_url + url_path
-        logging.debug("url: " + url)
+        # logging.debug("url: " + url)
+        self.logger.debug("url: " + url)
         params = clean_none_value(
             {
                 "url": url,
