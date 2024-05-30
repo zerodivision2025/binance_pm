@@ -128,7 +128,7 @@ class BinanceAPI:
             data = response.text
         result = {}
 
-        if self.show_limit_usage:
+        if self.show_limit_usage or True:
             limit_usage = {}
             for key in response.headers.keys():
                 key = key.lower()
