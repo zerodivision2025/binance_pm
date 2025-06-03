@@ -150,18 +150,18 @@ class BinancePm(BinanceAPI):
         return self.sign_request('GET', url_path, {'symbol': symbol, 'incomeType': income_type, 'startTime': start_time, 'endTime': end_time, 'page': page, 'limit': limit})
 
     def place_um_order(self, symbol, side, type, position_side=None, time_in_force=None, quantity=None, reduce_only=None, price=None,
-                       new_client_order_id=None, new_order_resp_type=None):
+                       new_client_order_id=None, new_order_resp_type=None, price_match=None):
         url_path = '/papi/v1/um/order'
         return self.sign_request('POST', url_path, {'symbol': symbol, 'side': side, 'type': type,
                                                     'positionSide': position_side, 'timeInForce': time_in_force, 'quantity': quantity, 'reduceOnly': reduce_only,
-                                                    'price': price, 'newClientOrderId': new_client_order_id, 'newOrderRespType': new_order_resp_type})
+                                                    'price': price, 'newClientOrderId': new_client_order_id, 'newOrderRespType': new_order_resp_type, 'priceMatch': price_match})
 
     def place_cm_order(self, symbol, side, type, position_side=None, time_in_force=None, quantity=None, reduce_only=None, price=None,
-                       new_client_order_id=None, new_order_resp_type=None):
+                       new_client_order_id=None, new_order_resp_type=None, price_match=None):
         url_path = '/papi/v1/cm/order'
         return self.sign_request('POST', url_path, {'symbol': symbol, 'side': side, 'type': type,
                                                     'positionSide': position_side, 'timeInForce': time_in_force, 'quantity': quantity, 'reduceOnly': reduce_only,
-                                                    'price': price, 'newClientOrderId': new_client_order_id, 'newOrderRespType': new_order_resp_type})
+                                                    'price': price, 'newClientOrderId': new_client_order_id, 'newOrderRespType': new_order_resp_type, 'priceMatch': price_match})
 
     def place_margin_order(self, symbol, side, type, quantity=None, quote_order_qty=None, price=None, stop_price=None, new_client_order_id=None, new_order_resp_type=None,
                            iceberg_qty=None, side_effect_type=None, time_in_force=None):
