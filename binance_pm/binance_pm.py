@@ -121,6 +121,10 @@ class BinancePm(BinanceAPI):
         url_path = '/papi/v1/auto-collection'
         return self.sign_request('POST', url_path)
 
+    def post_asset_collection(self, asset):
+        url_path = '/papi/v1/asset-collection'
+        return self.sign_request('POST', url_path, {'asset': asset})
+
     def post_bnb_transfer(self, amount, transfer_side):
         url_path = '/papi/v1/bnb-transfer'
         return self.sign_request('POST', url_path, {'amount': amount, 'transferSide': transfer_side})
