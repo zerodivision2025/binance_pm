@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='binance_pm',
-    version='v0.0.9',
+    version='v0.0.10',
     packages=['binance_pm'],
     install_requires=['requests', 'pycryptodome'],
     author='zerodivision',
