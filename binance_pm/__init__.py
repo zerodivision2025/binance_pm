@@ -107,7 +107,10 @@ class BinanceAPI:
     def send_request(self, http_method, url_path, payload=None, special=False):
         if payload is None:
             payload = {}
-        url = self.base_url + url_path
+        if url_path.startswith("http"):
+            url = url_path
+        else:
+            url = self.base_url + url_path
         # logging.debug("url: " + url)
         self.logger.debug("url: " + url)
         params = clean_none_value(

@@ -277,9 +277,9 @@ class BinancePm(BinanceAPI):
         return self.sign_request('DELETE', url_path)
 
     def set_delta_mode(self, delta_enabled):
-        url_path = '/sapi/v1/portfolio/delta-mode'
+        url_path = 'https://api.binance.com/sapi/v1/portfolio/delta-mode'
         return self.sign_request('POST', url_path, {'deltaEnabled': delta_enabled})
 
     def get_delta_mode(self, ):
-        url_path = '/sapi/v1/portfolio/delta-mode'
+        url_path = 'https://api.binance.com/sapi/v1/portfolio/delta-mode'
         return self.sign_request('GET', url_path, )
